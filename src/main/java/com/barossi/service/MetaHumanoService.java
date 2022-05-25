@@ -10,9 +10,9 @@ public interface MetaHumanoService {
 
     MetaHumano buscarPorId(Integer id);
 
-    Set<MetaHumano> buscarCriminosos();
+    Iterable<MetaHumano> buscarCriminosos();
 
-    Set<MetaHumano> buscarIdSecretaDesconhecida();
+    Iterable<MetaHumano> buscarIdSecretaDesconhecida();
 
     void inserir(MetaHumano meta);
 

@@ -25,15 +25,15 @@ public class MetaHumanoRestController {
         return ResponseEntity.ok(metaHumanoService.buscarPorId(id));
     }
 
-    /*@GetMapping
-    public ResponseEntity<Set<MetaHumano>> buscarCriminosos() {
+    @GetMapping("/buscar-criminosos")
+    public ResponseEntity<Iterable<MetaHumano>> buscarCriminosos() {
         return ResponseEntity.ok(metaHumanoService.buscarCriminosos());
     }
 
-    @GetMapping
-    public ResponseEntity<Set<MetaHumano>> buscarIdSecretaDesconhecida() {
+    @GetMapping("/buscar-id-secreta-desconhecida")
+    public ResponseEntity<Iterable<MetaHumano>> buscarIdSecretaDesconhecida() {
         return ResponseEntity.ok(metaHumanoService.buscarIdSecretaDesconhecida());
-    }*/
+    }
 
     @PostMapping
     public ResponseEntity<MetaHumano> inserir(@RequestBody MetaHumano meta) {

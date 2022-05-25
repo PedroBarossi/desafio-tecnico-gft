@@ -15,21 +15,6 @@ public class MetaHumano {
     private boolean terraqueo, criminoso;
     private String poderesConhecidos;
 
-    public MetaHumano(String nome, String idSecreta, boolean terraqueo, boolean criminoso, String poderesConhecidos) {
-        this.nome = nome;
-        this.idSecreta = idSecreta;
-        this.terraqueo = terraqueo;
-        this.criminoso = criminoso;
-        this.poderesConhecidos = poderesConhecidos;
-    }
-
-    public MetaHumano(String nome, boolean terraqueo, boolean criminoso, String poderesConhecidos) {
-        this.nome = nome;
-        this.idSecreta = "Desconhecida";
-        this.terraqueo = terraqueo;
-        this.criminoso = criminoso;
-        this.poderesConhecidos = poderesConhecidos;
-    }
 
     public int getId() {
         return id;
