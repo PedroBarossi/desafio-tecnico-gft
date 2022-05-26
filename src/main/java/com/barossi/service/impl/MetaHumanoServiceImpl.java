@@ -3,14 +3,11 @@ package com.barossi.service.impl;
 import com.barossi.model.MetaHumano;
 import com.barossi.model.MetaHumanoRepository;
 import com.barossi.service.MetaHumanoService;
-import com.fasterxml.jackson.databind.ser.std.IterableSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class MetaHumanoServiceImpl implements MetaHumanoService {
@@ -31,24 +28,20 @@ public class MetaHumanoServiceImpl implements MetaHumanoService {
 
     @Override
     public Iterable<MetaHumano> buscarCriminosos() {
-        Set<MetaHumano> set = new HashSet<>();
-        Iterator<MetaHumano> iterator = metaRepository.findAll().iterator();
-        while(iterator.hasNext()){
-            if (iterator.next().isCriminoso()) set.add(iterator.next());
+        List<MetaHumano> criminosos = new ArrayList<>();
+        for (MetaHumano metaHumano: metaRepository.findAll()) {
+            if(metaHumano.isCriminoso()) criminosos.add(metaHumano);
         }
-        Iterable<MetaHumano> retorno = set;
-        return retorno;
+        return criminosos;
     }
 
     @Override
     public Iterable<MetaHumano> buscarIdSecretaDesconhecida() {
-        Set<MetaHumano> set = new HashSet<>();
-        Iterator<MetaHumano> iterator = metaRepository.findAll().iterator();
-        while(iterator.hasNext()){
-            if(iterator.next().getIdSecreta().equalsIgnoreCase("Desconhecida")) set.add(iterator.next());
+        List<MetaHumano> desconhecidos = new ArrayList<>();
+        for (MetaHumano metaHumano: metaRepository.findAll()) {
+            if(metaHumano.getIdSecreta().equalsIgnoreCase("Desconhecida")) desconhecidos.add(metaHumano);
         }
-        Iterable<MetaHumano> retorno = set;
-        return retorno;
+        return desconhecidos;
     }
 
     @Override
